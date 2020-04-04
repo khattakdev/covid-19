@@ -15,17 +15,6 @@ const Index = () => {
       );
       const userCountry = getUserLocationData.data.country_name;
       const res = await covidAxios.get(`/countries/${userCountry}`);
-      const filteredRes = [
-        {
-          cases: res.data.cases,
-          todayCases: res.data.todayCases,
-          deaths: res.data.deaths,
-          todayDeaths: res.data.todayDeaths,
-          recovered: res.data.recovered,
-          active: res.data.active,
-          criticle: res.data.critical,
-        },
-      ];
       setResponseData([res.data]);
     }
     fetchData();

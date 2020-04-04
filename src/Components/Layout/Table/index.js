@@ -18,8 +18,9 @@ const Index = (props) => {
         </tr>
       </thead>
       <tbody>
-        {props.body.map((row) => (
-          <tr key={row.cases}>
+        {props.body.map((row, index) => (
+          <tr key={row.country}>
+            <td>{index + 1}</td>
             {props.show.map((item) => (
               <td key={item}>{row[item]}</td>
             ))}

@@ -6,7 +6,7 @@ import Navbar from "./Components/Layout/Header";
 import Main from "./Components/Main";
 import Global from "./Components/Global";
 import Country from "./Components/Country";
-import Countries from "./Components/Country";
+import Countries from "./Components/Countries";
 
 function App() {
   return (
