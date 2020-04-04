@@ -49,6 +49,7 @@ const Index = () => {
         ]}
         show={dataToShow}
         body={responseData}
+        singleRow={true}
       />
     </div>
   );

@@ -20,7 +20,7 @@ const Index = (props) => {
       <tbody>
         {props.body.map((row, index) => (
           <tr key={row.country}>
-            <td>{index + 1}</td>
+            {props.singleRow ? null : <td>{index + 1}</td>}
             {props.show.map((item) => (
               <td key={item}>{row[item]}</td>
             ))}

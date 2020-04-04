@@ -31,6 +31,7 @@ const Index = () => {
         headers={["Cases", "Deaths", "Recovered", "Updated", "Active"]}
         show={show}
         body={responseData}
+        singleRow={true}
       />
 
       {/* <table>
