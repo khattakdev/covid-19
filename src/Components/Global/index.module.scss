@@ -1,0 +1,41 @@
+@import "../../colors.scss";
+
+.global {
+  font-size: 4rem;
+  padding: 0 2rem;
+  //   overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  &_primary {
+    margin: 5rem 0;
+  }
+
+  table {
+    width: 90%;
+    margin: 0 auto;
+    border: $primary 1px solid;
+    border-collapse: collapse;
+
+    th {
+      background: $primary;
+      color: white;
+      text-align: center;
+      border-right: 1px solid $table-border;
+    }
+    th:last-of-type {
+      border-right: none;
+    }
+
+    td {
+      text-align: center;
+      border: $table-border 1px solid;
+    }
+
+    tr:nth-child(odd) {
+      background: $table-odd-row;
+    }
+  }
+}

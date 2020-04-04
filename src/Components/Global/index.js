@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./index.module.scss";
 import axios from "../../axios";
+import Spinner from "../Layout/Spinner";
 const Index = () => {
   const [responseData, setResponseData] = useState({});
 
@@ -13,8 +14,11 @@ const Index = () => {
 
     fetchData();
   }, []);
+
   return (
     <div className={classes.global}>
+      {!!responseData.cases ? null : <Spinner />}
+      <h2 className={classes.global_primary}>Global Data</h2>
       <table>
         <thead>
           <tr>
@@ -25,9 +29,16 @@ const Index = () => {
             <th>Active</th>
           </tr>
         </thead>
+        <tbody>
+          <tr>
+            <td>{responseData.cases}</td>
+            <td>{responseData.cases}</td>
+            <td>{responseData.cases}</td>
+            <td>{responseData.cases}</td>
+            <td>{responseData.cases}</td>
+          </tr>
+        </tbody>
       </table>
-      <h2>Global Data</h2>
-      <p> Deaths: {responseData.cases}</p>
     </div>
   );
 };
