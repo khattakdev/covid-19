@@ -1,0 +1,28 @@
+@import "../../../colors.scss";
+
+.navBar {
+  background-color: $primary;
+  padding: 2rem 0;
+  color: white;
+  font-size: 3.6rem;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  &_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & * {
+      margin: 0 1rem;
+    }
+  }
+
+  &_back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    fill: white;
+    height: 28px;
+  }
+}
