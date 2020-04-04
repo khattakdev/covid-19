@@ -2,24 +2,38 @@ import React, { useEffect, useState } from "react";
 import classes from "./index.module.scss";
 import axios from "../../axios";
 import Spinner from "../Layout/Spinner";
+import Table from "../Layout/Table";
 const Index = () => {
-  const [responseData, setResponseData] = useState({});
+  const [responseData, setResponseData] = useState([]);
+  const [fetchedResponse, setFetchedResponse] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get("/all");
-      console.log(res.data);
-      setResponseData(res.data);
+      setResponseData([res.data]);
+      setFetchedResponse(true);
     }
 
     fetchData();
   }, []);
 
+  useEffect(() => {
+    responseData.map((data) => {
+      console.log(data.cases);
+    });
+  }, [responseData]);
+  const show = ["cases", "deaths", "recovered", "updated", "active"];
   return (
     <div className={classes.global}>
-      {!!responseData.cases ? null : <Spinner />}
+      {fetchedResponse ? null : <Spinner />}
       <h2 className={classes.global_primary}>Global Data</h2>
-      <table>
+      <Table
+        headers={["Cases", "Deaths", "Recovered", "Updated", "Active"]}
+        show={show}
+        body={responseData}
+      />
+
+      {/* <table>
         <thead>
           <tr>
             <th>Cases</th>
@@ -38,7 +52,7 @@ const Index = () => {
             <td>{responseData.cases}</td>
           </tr>
         </tbody>
-      </table>
+      </table> */}
     </div>
   );
 };

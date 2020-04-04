@@ -1,11 +1,12 @@
 import React from "react";
 import "./App.scss";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Router } from "react-router-dom";
 
 import Navbar from "./Components/Layout/Header";
 import Main from "./Components/Main";
 import Global from "./Components/Global";
-import Spinner from "./Components/Layout/Spinner";
+import Country from "./Components/Country";
+import Countries from "./Components/Country";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={Main} />
           <Route path="/global" exact component={Global} />
-          <Route path="/mycountry" exact component={Spinner} />
+          <Route path="/country" exact component={Country} />
+          <Route path="/countries" exact component={Countries} />
         </Switch>
         {/* <Main /> */}
       </div>

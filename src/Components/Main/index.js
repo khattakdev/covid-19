@@ -12,12 +12,12 @@ const index = () => {
     {
       id: 2,
       content: "My Country",
-      path: "/mycountry",
+      path: "/country",
     },
     {
       id: 3,
       content: "All Countries",
-      path: "allcountries",
+      path: "/countries",
     },
   ];
   return (
