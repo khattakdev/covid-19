@@ -15,4 +15,10 @@
     font-size: 2rem;
     padding: 0.2rem 1rem;
   }
+
+  &_table {
+    @media screen and (max-width: 610px) {
+      font-size: 0.9rem;
+    }
+  }
 }

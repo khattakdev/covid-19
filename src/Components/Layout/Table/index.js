@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./index.module.scss";
 
 const Index = (props) => {
+  console.log(props);
   return (
     <table
       className={

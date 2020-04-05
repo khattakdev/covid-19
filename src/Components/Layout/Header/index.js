@@ -14,7 +14,7 @@ const Index = (props) => {
   return (
     <div className={classes.navBar}>
       <div className={classes.navBar_content}>
-        <LogoIcon />
+        <LogoIcon className={classes.navBar_logo} />
         <h2 className={classes.navBar_primary}>Covid 19 Statistics</h2>
       </div>
       {backIcon}

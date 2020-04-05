@@ -30,7 +30,7 @@ const Index = () => {
   ];
 
   const tempFilter = responseData.filter((item) => {
-    return item.country.toLowerCase().includes(filteredData);
+    return item.country.toLowerCase().includes(filteredData.toLowerCase());
   });
   return (
     <div className={classes.listData}>
@@ -43,6 +43,7 @@ const Index = () => {
         type="text"
       />
       <Table
+        className={classes.listData_table}
         headers={[
           "No",
           "Country",

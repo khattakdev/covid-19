@@ -9,6 +9,10 @@
   th {
     white-space: nowrap;
     padding: 1rem;
+    width: 1%;
+    @media screen and (max-width: 750px) {
+      padding: 1rem 0.5rem;
+    }
     background: $primary;
     color: white;
     text-align: center;
@@ -21,10 +25,29 @@
   td {
     text-align: center;
     padding: 1rem;
+    @media screen and (max-width: 750px) {
+      padding: 1rem 0.5rem;
+    }
     border: $table-border 1px solid;
   }
 
   tr:nth-child(odd) {
     background: $table-odd-row;
+  }
+
+  @media screen and (max-width: 1296px) {
+    font-size: 2.4rem;
+  }
+
+  @media screen and (max-width: 1146px) {
+    font-size: 2rem;
+  }
+
+  @media screen and (max-width: 920px) {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (max-width: 750px) {
+    font-size: 1.3rem;
   }
 }

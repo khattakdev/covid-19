@@ -9,13 +9,37 @@ const Index = () => {
 
   useEffect(() => {
     async function fetchData() {
+      // API Call to Find User IP
       const getUserIP = await axios.get("https://api.ipify.org");
-      const getUserLocationData = await axios.get(
-        `https://api.ipgeolocation.io/ipgeo?apiKey=c244e709e5a54d0898b72b1e2905a3ee&ip=${getUserIP.data}&fields=country_name`
-      );
-      const userCountry = getUserLocationData.data.country_name;
-      const res = await covidAxios.get(`/countries/${userCountry}`);
-      setResponseData([res.data]);
+      const getIPFromLocalStorage = JSON.parse(localStorage.getItem("userIP"));
+      const userCurrentIP = getUserIP.data;
+
+      // if User visits First Time or location has been changed
+      if (!getIPFromLocalStorage || userCurrentIP !== getIPFromLocalStorage) {
+        // Store User IP in Local Storage
+        localStorage.setItem("userIP", JSON.stringify(userCurrentIP));
+        // API Call to Find User Country name
+        const getUserLocationData = await axios.get(
+          `https://api.ipgeolocation.io/ipgeo?apiKey=c244e709e5a54d0898b72b1e2905a3ee&ip=${userCurrentIP}&fields=country_name`
+        );
+        // Store User Country in Local Storage
+        localStorage.setItem(
+          "userCountry",
+          JSON.stringify(getUserLocationData.data.country_name)
+        );
+        // API Call for COVID Stats
+        const userCountry = getUserLocationData.data.country_name;
+        const res = await covidAxios.get(`/countries/${userCountry}`);
+        setResponseData([res.data]);
+      } else {
+        const getCountryFromLocalStorage = JSON.parse(
+          localStorage.getItem("userCountry")
+        );
+        const res = await covidAxios.get(
+          `/countries/${getCountryFromLocalStorage}`
+        );
+        setResponseData([res.data]);
+      }
     }
     fetchData();
   }, []);
