@@ -5,7 +5,9 @@ import Spinner from "../../Layout/Spinner";
 import Table from "../../Layout/Table";
 const Index = () => {
   const [responseData, setResponseData] = useState([]);
+  const [filteredData, setFilteredData] = useState("");
 
+  // Fetch Covid Resut
   useEffect(() => {
     async function fetchData() {
       const res = await covidAxios.get(`/countries`);
@@ -13,6 +15,8 @@ const Index = () => {
     }
     fetchData();
   }, []);
+
+  // Update Table on Input Search
 
   const dataToShow = [
     "country",
@@ -24,12 +28,18 @@ const Index = () => {
     "active",
     "critical",
   ];
+
+  const tempFilter = responseData.filter((item) => {
+    return item.country.toLowerCase().includes(filteredData);
+  });
   return (
     <div className={classes.listData}>
       {responseData.length > 0 ? null : <Spinner />}
       <input
         className={classes.listData_search}
         placeholder="Search Country"
+        value={filteredData}
+        onChange={(e) => setFilteredData(e.target.value)}
         type="text"
       />
       <Table
@@ -45,7 +55,7 @@ const Index = () => {
           "Critical",
         ]}
         show={dataToShow}
-        body={responseData}
+        body={tempFilter}
       />
     </div>
   );
