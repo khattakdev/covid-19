@@ -1,0 +1,50 @@
+@import "../../../colors.scss";
+
+.navBar {
+  background-color: $primary;
+  padding: 2rem 0;
+  color: white;
+  font-size: 3.6rem;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  &_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & * {
+      margin: 0 1rem;
+      @media screen and (max-width: 500px) {
+        margin: 0 0.3rem;
+      }
+    }
+  }
+
+  &_logo {
+    height: 4rem;
+
+    @media screen and (max-width: 500px) {
+      height: 3.5rem;
+    }
+    @media screen and (max-width: 450px) {
+      height: 3rem;
+    }
+  }
+
+  &_back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    fill: white;
+    height: 3rem;
+  }
+
+  @media screen and (max-width: 520px) {
+    font-size: 3rem;
+  }
+
+  @media screen and (max-width: 380px) {
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,13 @@
+@import "../../colors.scss";
+
+.global {
+  font-size: 3.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  &_primary {
+    margin: 5rem 0;
+  }
+}

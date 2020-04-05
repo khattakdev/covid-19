@@ -1,0 +1,42 @@
+@import "../../colors.scss";
+
+.main {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 81vh;
+}
+
+.button {
+  color: inherit;
+  background-color: $primary;
+  margin: 2rem 0;
+  font-size: 3.5rem;
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  min-width: 25rem;
+  text-align: center;
+  opacity: 0;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  animation: fadeIn 0.5s forwards;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $primary-dark;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
