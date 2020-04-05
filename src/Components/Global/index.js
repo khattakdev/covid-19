@@ -17,11 +17,6 @@ const Index = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    responseData.map((data) => {
-      console.log(data.cases);
-    });
-  }, [responseData]);
   const show = ["cases", "deaths", "recovered", "updated", "active"];
   return (
     <div className={classes.global}>

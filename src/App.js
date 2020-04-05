@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.scss";
-import { BrowserRouter, Switch, Route, Router } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Navbar from "./Components/Layout/Header";
 import Main from "./Components/Main";
@@ -19,7 +19,6 @@ function App() {
           <Route path="/country" exact component={Country} />
           <Route path="/countries" exact component={Countries} />
         </Switch>
-        {/* <Main /> */}
       </div>
     </BrowserRouter>
   );

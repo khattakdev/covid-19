@@ -1,0 +1,18 @@
+@import "../../../colors.scss";
+
+.listData {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &_search {
+    margin-bottom: 2rem;
+    height: 30px;
+    width: 40rem;
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid $input-border;
+    font-size: 2rem;
+    padding: 0.2rem 1rem;
+  }
+}
