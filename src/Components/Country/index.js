@@ -44,10 +44,6 @@ const Index = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    console.log(responseData);
-  }, [responseData]);
-
   const dataToShow = [
     "cases",
     "todayCases",
